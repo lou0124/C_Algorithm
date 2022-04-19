@@ -102,24 +102,24 @@ void BellmanFordShortestPaths() {
 	int i, j;
   
 	for (i = 0;i < n;i++)
-  {
+  	{
 		G.vertices[i].distance = 100000;
 	}
 	G.vertices[s - 1].distance = 0;
   
 	for (i = 1;i < n - 1;i++)
 		for (j = 0;j < m;j++) 
-    {
+    		{
 			u = G.edges[j].origin;
 			z = G.edges[j].destination;
 			if (G.vertices[z].distance > G.vertices[u].distance + G.edges[j].weight && G.vertices[u].distance != 100000)
-      {
+      			{
 				G.vertices[z].distance = G.vertices[u].distance + G.edges[j].weight;
 			}
 		}
   
-	for (i = 0;i < n;i++) {
-    
+	for (i = 0;i < n;i++) 
+	{
 		if (G.vertices[i].distance != 100000 && G.vertices[i].name != s)
 			printf("%d %d\n", G.vertices[i].name, G.vertices[i].distance);
 	}
